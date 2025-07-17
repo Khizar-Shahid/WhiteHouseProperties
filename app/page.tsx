@@ -1,9 +1,12 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Star, MapPin, Wifi, Car, Shield, Users, Utensils, Plane } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { openWhatsApp } from "@/lib/utils"
 
 export default function HomePage() {
   return (
@@ -35,7 +38,7 @@ export default function HomePage() {
                 Contact
               </Link>
             </nav>
-            <Button className="bg-blue-600 hover:bg-blue-700">Book Now</Button>
+            <Button className="bg-blue-600 hover:bg-blue-700" onClick={() => openWhatsApp()}>Book Now</Button>
           </div>
         </div>
       </header>
@@ -52,11 +55,19 @@ export default function HomePage() {
             and tourists visiting Islamabad/Rawalpindi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-3">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-3" onClick={() => openWhatsApp()}>
               <Plane className="w-5 h-5 mr-2" />
               Book Your Stay
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-3 bg-transparent">
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-8 py-3 bg-transparent"
+              onClick={() => {
+                const section = document.getElementById('properties');
+                if (section) section.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               View Properties
             </Button>
           </div>
@@ -146,7 +157,7 @@ export default function HomePage() {
                     "Excellent facilities, location, security, staff and rooms" - Recent Guest Review
                   </p>
                   <div className="flex gap-2">
-                    <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Book Now</Button>
+                    <Button className="flex-1 bg-blue-600 hover:bg-blue-700" onClick={() => openWhatsApp("Hi! I'm interested in booking a room at White House Executive.")}>Book Now</Button>
                     <Button variant="outline" className="flex-1 bg-transparent">
                       View Details
                     </Button>
@@ -209,7 +220,7 @@ export default function HomePage() {
                     "Very clean, well furnished, all facilities available" - Recent Guest Review
                   </p>
                   <div className="flex gap-2">
-                    <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Book Now</Button>
+                    <Button className="flex-1 bg-blue-600 hover:bg-blue-700" onClick={() => openWhatsApp("Hi! I'm interested in booking a room at White House Residencia.")}>Book Now</Button>
                     <Button variant="outline" className="flex-1 bg-transparent">
                       View Details
                     </Button>
