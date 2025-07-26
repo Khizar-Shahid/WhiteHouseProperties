@@ -16,12 +16,16 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">WH</span>
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm md:text-lg">WH</span>
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">White House Properties</h1>
-                <p className="text-sm text-gray-600">Premium Guest Houses</p>
+              <div className="hidden sm:block">
+                <h1 className="text-lg md:text-xl font-bold text-gray-900">White House Properties</h1>
+                <p className="text-xs md:text-sm text-gray-600">Premium Guest Houses</p>
+              </div>
+              <div className="sm:hidden">
+                <h1 className="text-base font-bold text-gray-900">White House</h1>
+                <p className="text-xs text-gray-600">Properties</p>
               </div>
             </div>
             <nav className="hidden md:flex space-x-6">
@@ -38,31 +42,60 @@ export default function HomePage() {
                 Contact
               </Link>
             </nav>
-            <Button className="bg-blue-600 hover:bg-blue-700" onClick={() => openWhatsApp()}>Book Now</Button>
+            <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4">
+              <a href="tel:+923390097397">
+                <Button 
+                  variant="outline" 
+                  className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 border-blue-600 text-xs md:text-sm px-2 md:px-4"
+                >
+                  <span className="hidden md:inline">Call Us: </span>
+                  <span className="md:hidden">Call</span>
+                </Button>
+              </a>
+              <Button 
+                className="bg-blue-600 hover:bg-blue-700 text-xs md:text-sm px-2 md:px-4 min-w-fit"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = 'tel:+923390097397';
+                  link.click();
+                }}
+              >
+                <span className="hidden sm:inline">Book Now</span>
+                <span className="sm:hidden">Book</span>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-20 px-4">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
             Premium Guest Houses in
             <span className="text-blue-600 block">Bahria Town, Rawalpindi</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto px-4">
             Experience luxury and comfort at our two exceptional properties. Perfect for business travelers, families,
             and tourists visiting Islamabad/Rawalpindi.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-3" onClick={() => openWhatsApp()}>
-              <Plane className="w-5 h-5 mr-2" />
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <Button 
+              size="lg" 
+              className="bg-blue-600 hover:bg-blue-700 px-6 md:px-8 py-3 w-full sm:w-auto"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = 'tel:+923390097397';
+                link.click();
+              }}
+            >
+              <Plane className="w-4 h-4 md:w-5 md:h-5 mr-2" />
               Book Your Stay
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="px-8 py-3 bg-transparent"
+              className="px-6 md:px-8 py-3 bg-transparent w-full sm:w-auto"
               onClick={() => {
                 const section = document.getElementById('properties');
                 if (section) section.scrollIntoView({ behavior: 'smooth' });
@@ -71,94 +104,107 @@ export default function HomePage() {
               View Properties
             </Button>
           </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-600">
+          <div className="mt-8 md:mt-12 flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm text-gray-600 px-4">
             <div className="flex items-center">
-              <MapPin className="w-4 h-4 mr-2 text-blue-600" />
-              31-32 km from Airport
+              <MapPin className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
+              <span className="hidden sm:inline">31-32 km from Airport</span>
+              <span className="sm:hidden">Airport</span>
             </div>
             <div className="flex items-center">
-              <Shield className="w-4 h-4 mr-2 text-blue-600" />
+              <Shield className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
               24/7 Security
             </div>
             <div className="flex items-center">
-              <Wifi className="w-4 h-4 mr-2 text-blue-600" />
+              <Wifi className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
               Free WiFi
             </div>
             <div className="flex items-center">
-              <Car className="w-4 h-4 mr-2 text-blue-600" />
-              Free Parking
+              <Car className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
+              <span className="hidden sm:inline">Free Parking</span>
+              <span className="sm:hidden">Parking</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Properties Section */}
-      <section id="properties" className="py-16 px-4 bg-white">
+      <section id="properties" className="py-12 md:py-16 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Premium Properties</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Our Premium Properties</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               Choose from our two exceptional guest houses, each offering unique amenities and experiences
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
             {/* White House Executive */}
             <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-64">
+              <div className="relative h-48 md:h-64">
                 <Image
                   src="/images/white-house-executive.png"
                   alt="White House Executive - Premium Guest House Room"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-green-600 hover:bg-green-700">
-                    <Star className="w-3 h-3 mr-1 fill-current" />
+                <div className="absolute top-3 md:top-4 left-3 md:left-4">
+                  <Badge className="bg-green-600 hover:bg-green-700 text-xs">
+                    <Star className="w-2 h-2 md:w-3 md:h-3 mr-1 fill-current" />
                     8.5/10 Very Good
                   </Badge>
                 </div>
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl text-gray-900">White House Executive</CardTitle>
-                <CardDescription className="text-gray-600">Guest House Islamabad - Phase 3 Bahria Town</CardDescription>
-                <div className="flex items-center text-sm text-gray-500 mt-2">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  2078 Street 66 Phase 3, Bahria Town
+              <CardHeader className="p-4 md:p-6">
+                <CardTitle className="text-lg md:text-xl text-gray-900">White House Executive</CardTitle>
+                <CardDescription className="text-gray-600 text-sm md:text-base">Guest House Islamabad - Phase 3 Bahria Town</CardDescription>
+                <div className="flex items-center text-xs md:text-sm text-gray-500 mt-2">
+                  <MapPin className="w-3 h-3 md:w-4 md:h-4 mr-1" />
+                  <span className="hidden sm:inline">2078 Street 66 Phase 3, Bahria Town</span>
+                  <span className="sm:hidden">Phase 3, Bahria Town</span>
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">Private Bathrooms</Badge>
-                    <Badge variant="secondary">Balconies</Badge>
-                    <Badge variant="secondary">Kitchenette</Badge>
-                    <Badge variant="secondary">Work Desk</Badge>
+              <CardContent className="p-4 md:p-6">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="flex flex-wrap gap-1 md:gap-2">
+                    <Badge variant="secondary" className="text-xs">Private Bathrooms</Badge>
+                    <Badge variant="secondary" className="text-xs">Balconies</Badge>
+                    <Badge variant="secondary" className="text-xs">Kitchenette</Badge>
+                    <Badge variant="secondary" className="text-xs">Work Desk</Badge>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm">
                     <div className="flex items-center">
-                      <Plane className="w-4 h-4 mr-2 text-blue-600" />
-                      31 km from Airport
+                      <Plane className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
+                      <span className="hidden sm:inline">31 km from Airport</span>
+                      <span className="sm:hidden">Airport</span>
                     </div>
                     <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-2 text-blue-600" />
+                      <Users className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
                       Family Rooms
                     </div>
                     <div className="flex items-center">
-                      <Utensils className="w-4 h-4 mr-2 text-blue-600" />
+                      <Utensils className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
                       Room Service
                     </div>
                     <div className="flex items-center">
-                      <Shield className="w-4 h-4 mr-2 text-blue-600" />
+                      <Shield className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
                       24/7 Security
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs md:text-sm text-gray-600">
                     "Excellent facilities, location, security, staff and rooms" - Recent Guest Review
                   </p>
-                  <div className="flex gap-2">
-                    <Button className="flex-1 bg-blue-600 hover:bg-blue-700" onClick={() => openWhatsApp("Hi! I'm interested in booking a room at White House Executive.")}>Book Now</Button>
-                    <Button variant="outline" className="flex-1 bg-transparent">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button 
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-sm"
+                      onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = 'tel:+923390097397';
+                        link.click();
+                      }}
+                    >
+                      Book Now
+                    </Button>
+                    <Button variant="outline" className="flex-1 bg-transparent text-sm">
                       View Details
                     </Button>
                   </div>
@@ -168,60 +214,71 @@ export default function HomePage() {
 
             {/* White House Residencia */}
             <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-64">
+              <div className="relative h-48 md:h-64">
                 <Image
                   src="/images/white-house-residencia.png"
                   alt="White House Residencia - Modern Guest House Room"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-blue-600 hover:bg-blue-700">
-                    <Star className="w-3 h-3 mr-1 fill-current" />
+                <div className="absolute top-3 md:top-4 left-3 md:left-4">
+                  <Badge className="bg-blue-600 hover:bg-blue-700 text-xs">
+                    <Star className="w-2 h-2 md:w-3 md:h-3 mr-1 fill-current" />
                     7.2/10 Good
                   </Badge>
                 </div>
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl text-gray-900">White House Residencia</CardTitle>
-                <CardDescription className="text-gray-600">Recently Renovated - Phase 5 Bahria Town</CardDescription>
-                <div className="flex items-center text-sm text-gray-500 mt-2">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  House No 1077, Street 23, Phase 5
+              <CardHeader className="p-4 md:p-6">
+                <CardTitle className="text-lg md:text-xl text-gray-900">White House Residencia</CardTitle>
+                <CardDescription className="text-gray-600 text-sm md:text-base">Recently Renovated - Phase 5 Bahria Town</CardDescription>
+                <div className="flex items-center text-xs md:text-sm text-gray-500 mt-2">
+                  <MapPin className="w-3 h-3 md:w-4 md:h-4 mr-1" />
+                  <span className="hidden sm:inline">House No 1077, Street 23, Phase 5</span>
+                  <span className="sm:hidden">Phase 5, Bahria Town</span>
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">6 Rooms</Badge>
-                    <Badge variant="secondary">Full Kitchen</Badge>
-                    <Badge variant="secondary">Sun Terrace</Badge>
-                    <Badge variant="secondary">Pet-Friendly</Badge>
+              <CardContent className="p-4 md:p-6">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="flex flex-wrap gap-1 md:gap-2">
+                    <Badge variant="secondary" className="text-xs">6 Rooms</Badge>
+                    <Badge variant="secondary" className="text-xs">Full Kitchen</Badge>
+                    <Badge variant="secondary" className="text-xs">Sun Terrace</Badge>
+                    <Badge variant="secondary" className="text-xs">Pet-Friendly</Badge>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm">
                     <div className="flex items-center">
-                      <Plane className="w-4 h-4 mr-2 text-blue-600" />
-                      32 km from Airport
+                      <Plane className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
+                      <span className="hidden sm:inline">32 km from Airport</span>
+                      <span className="sm:hidden">Airport</span>
                     </div>
                     <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-2 text-blue-600" />
+                      <Users className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
                       Family Friendly
                     </div>
                     <div className="flex items-center">
-                      <Utensils className="w-4 h-4 mr-2 text-blue-600" />
+                      <Utensils className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
                       Full Kitchen
                     </div>
                     <div className="flex items-center">
-                      <Shield className="w-4 h-4 mr-2 text-blue-600" />
+                      <Shield className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-blue-600" />
                       Private Check-in
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs md:text-sm text-gray-600">
                     "Very clean, well furnished, all facilities available" - Recent Guest Review
                   </p>
-                  <div className="flex gap-2">
-                    <Button className="flex-1 bg-blue-600 hover:bg-blue-700" onClick={() => openWhatsApp("Hi! I'm interested in booking a room at White House Residencia.")}>Book Now</Button>
-                    <Button variant="outline" className="flex-1 bg-transparent">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button 
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-sm"
+                      onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = 'tel:+923390097397';
+                        link.click();
+                      }}
+                    >
+                      Book Now
+                    </Button>
+                    <Button variant="outline" className="flex-1 bg-transparent text-sm">
                       View Details
                     </Button>
                   </div>
@@ -233,14 +290,14 @@ export default function HomePage() {
       </section>
 
       {/* Amenities Section */}
-      <section id="amenities" className="py-16 px-4 bg-gray-50">
+      <section id="amenities" className="py-12 md:py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Premium Amenities</h2>
-            <p className="text-lg text-gray-600">Everything you need for a comfortable stay</p>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Premium Amenities</h2>
+            <p className="text-base md:text-lg text-gray-600">Everything you need for a comfortable stay</p>
           </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
             {[
               { icon: Shield, title: "24/7 Security", desc: "Full-day security with CCTV" },
               { icon: Wifi, title: "Free WiFi", desc: "High-speed internet access" },
@@ -253,11 +310,11 @@ export default function HomePage() {
             ].map((amenity, index) => (
               <div
                 key={index}
-                className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className="text-center p-4 md:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
-                <amenity.icon className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-                <h3 className="font-semibold text-gray-900 mb-2">{amenity.title}</h3>
-                <p className="text-sm text-gray-600">{amenity.desc}</p>
+                <amenity.icon className="w-6 h-6 md:w-8 md:h-8 text-blue-600 mx-auto mb-2 md:mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base">{amenity.title}</h3>
+                <p className="text-xs md:text-sm text-gray-600">{amenity.desc}</p>
               </div>
             ))}
           </div>
@@ -334,34 +391,47 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 bg-blue-600 text-white">
+      <section id="contact" className="py-12 md:py-16 px-4 bg-blue-600 text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Book Your Stay?</h2>
-          <p className="text-xl mb-8 opacity-90">Contact us directly or book online for the best rates</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 flex-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">Ready to Book Your Stay?</h2>
+          <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90 px-4">Contact us directly or book online for the best rates</p>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center max-w-md mx-auto px-4">
+            <Button 
+              size="lg" 
+              className="bg-white text-blue-600 hover:bg-gray-100 flex-1 text-sm md:text-base"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = 'tel:+923390097397';
+                link.click();
+              }}
+            >
               WhatsApp Booking
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 flex-1 bg-transparent"
+              className="border-white text-white hover:bg-white hover:text-blue-600 flex-1 bg-transparent text-sm md:text-base"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = 'tel:+923390097397';
+                link.click();
+              }}
             >
               Call Now
             </Button>
           </div>
-          <div className="mt-8 grid md:grid-cols-2 gap-8 max-w-2xl mx-auto text-left">
+          <div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto text-left px-4">
             <div>
-              <h3 className="font-semibold mb-2">White House Executive</h3>
-              <p className="text-sm opacity-90">Host: Zeeshan</p>
-              <p className="text-sm opacity-90">Phase 3, Bahria Town</p>
-              <p className="text-sm opacity-90">Rating: 8.5/10 (46 reviews)</p>
+              <h3 className="font-semibold mb-2 text-sm md:text-base">White House Executive</h3>
+              <p className="text-xs md:text-sm opacity-90">Host: Zeeshan</p>
+              <p className="text-xs md:text-sm opacity-90">Phase 3, Bahria Town</p>
+              <p className="text-xs md:text-sm opacity-90">Rating: 8.5/10 (46 reviews)</p>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">White House Residencia</h3>
-              <p className="text-sm opacity-90">Host: Talha</p>
-              <p className="text-sm opacity-90">Phase 5, Bahria Town</p>
-              <p className="text-sm opacity-90">Rating: 7.2/10 (51 reviews)</p>
+              <h3 className="font-semibold mb-2 text-sm md:text-base">White House Residencia</h3>
+              <p className="text-xs md:text-sm opacity-90">Host: Talha</p>
+              <p className="text-xs md:text-sm opacity-90">Phase 5, Bahria Town</p>
+              <p className="text-xs md:text-sm opacity-90">Rating: 7.2/10 (51 reviews)</p>
             </div>
           </div>
         </div>
