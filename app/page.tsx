@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Star, MapPin, Wifi, Car, Shield, Users, Utensils, Plane } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { openWhatsApp } from "@/lib/utils"
+
 
 export default function HomePage() {
   return (
@@ -43,26 +43,54 @@ export default function HomePage() {
               </Link>
             </nav>
             <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4">
-              <a href="tel:+923390097397">
-                <Button 
-                  variant="outline" 
-                  className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 border-blue-600 text-xs md:text-sm px-2 md:px-4"
-                >
-                  <span className="hidden md:inline">Call Us: </span>
-                  <span className="md:hidden">Call</span>
-                </Button>
-              </a>
-              <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-xs md:text-sm px-2 md:px-4 min-w-fit"
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = 'tel:+923390097397';
-                  link.click();
+              <a 
+                href="tel:+923301716287"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  
+                  // Force the phone dialer to open
+                  const phoneNumber = '+923301716287';
+                  
+                  // Method 1: Direct navigation
+                  window.location.href = `tel:${phoneNumber}`;
+                  
+                  // Method 2: Fallback - create and click a link
+                  setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = `tel:${phoneNumber}`;
+                    link.click();
+                  }, 50);
                 }}
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-blue-600 text-blue-600 hover:text-blue-700 hover:bg-blue-50 text-xs md:text-sm px-2 md:px-4 py-2"
+              >
+                <span className="hidden md:inline">Call Us: +92 330 1716287</span>
+                <span className="md:hidden">Call: +92 330 1716287</span>
+              </a>
+              <a 
+                href="tel:+923301716287"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  
+                  // Force the phone dialer to open
+                  const phoneNumber = '+923301716287';
+                  
+                  // Method 1: Direct navigation
+                  window.location.href = `tel:${phoneNumber}`;
+                  
+                  // Method 2: Fallback - create and click a link
+                  setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = `tel:${phoneNumber}`;
+                    link.click();
+                  }, 50);
+                }}
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white hover:bg-blue-700 text-xs md:text-sm px-2 md:px-4 py-2 min-w-fit"
               >
                 <span className="hidden sm:inline">Book Now</span>
                 <span className="sm:hidden">Book</span>
-              </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -80,18 +108,30 @@ export default function HomePage() {
             and tourists visiting Islamabad/Rawalpindi.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-            <Button 
-              size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 px-6 md:px-8 py-3 w-full sm:w-auto"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = 'tel:+923390097397';
-                link.click();
+            <a 
+              href="tel:+923301716287"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Force the phone dialer to open
+                const phoneNumber = '+923301716287';
+                
+                // Method 1: Direct navigation
+                window.location.href = `tel:${phoneNumber}`;
+                
+                // Method 2: Fallback - create and click a link
+                setTimeout(() => {
+                  const link = document.createElement('a');
+                  link.href = `tel:${phoneNumber}`;
+                  link.click();
+                }, 50);
               }}
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white hover:bg-blue-700 px-6 md:px-8 py-3 w-full sm:w-auto text-lg"
             >
               <Plane className="w-4 h-4 md:w-5 md:h-5 mr-2" />
               Book Your Stay
-            </Button>
+            </a>
             <Button
               size="lg"
               variant="outline"
@@ -194,16 +234,29 @@ export default function HomePage() {
                     "Excellent facilities, location, security, staff and rooms" - Recent Guest Review
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2">
-                    <Button 
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-sm"
-                      onClick={() => {
-                        const link = document.createElement('a');
-                        link.href = 'tel:+923390097397';
-                        link.click();
+                    <a 
+                      href="tel:+923301716287"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Force the phone dialer to open
+                        const phoneNumber = '+923301716287';
+                        
+                        // Method 1: Direct navigation
+                        window.location.href = `tel:${phoneNumber}`;
+                        
+                        // Method 2: Fallback - create and click a link
+                        setTimeout(() => {
+                          const link = document.createElement('a');
+                          link.href = `tel:${phoneNumber}`;
+                          link.click();
+                        }, 50);
                       }}
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded-md inline-flex items-center justify-center"
                     >
                       Book Now
-                    </Button>
+                    </a>
                     <Button variant="outline" className="flex-1 bg-transparent text-sm">
                       View Details
                     </Button>
@@ -268,16 +321,29 @@ export default function HomePage() {
                     "Very clean, well furnished, all facilities available" - Recent Guest Review
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2">
-                    <Button 
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-sm"
-                      onClick={() => {
-                        const link = document.createElement('a');
-                        link.href = 'tel:+923390097397';
-                        link.click();
+                    <a 
+                      href="tel:+923301716287"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Force the phone dialer to open
+                        const phoneNumber = '+923301716287';
+                        
+                        // Method 1: Direct navigation
+                        window.location.href = `tel:${phoneNumber}`;
+                        
+                        // Method 2: Fallback - create and click a link
+                        setTimeout(() => {
+                          const link = document.createElement('a');
+                          link.href = `tel:${phoneNumber}`;
+                          link.click();
+                        }, 50);
                       }}
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded-md inline-flex items-center justify-center"
                     >
                       Book Now
-                    </Button>
+                    </a>
                     <Button variant="outline" className="flex-1 bg-transparent text-sm">
                       View Details
                     </Button>
@@ -396,29 +462,52 @@ export default function HomePage() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">Ready to Book Your Stay?</h2>
           <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-90 px-4">Contact us directly or book online for the best rates</p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center max-w-md mx-auto px-4">
-            <Button 
-              size="lg" 
-              className="bg-white text-blue-600 hover:bg-gray-100 flex-1 text-sm md:text-base"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = 'tel:+923390097397';
-                link.click();
+            <a 
+              href="tel:+923301716287"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Force the phone dialer to open
+                const phoneNumber = '+923301716287';
+                
+                // Method 1: Direct navigation
+                window.location.href = `tel:${phoneNumber}`;
+                
+                // Method 2: Fallback - create and click a link
+                setTimeout(() => {
+                  const link = document.createElement('a');
+                  link.href = `tel:${phoneNumber}`;
+                  link.click();
+                }, 50);
               }}
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-blue-600 hover:bg-gray-100 flex-1 text-sm md:text-base px-6 md:px-8 py-3 text-lg"
             >
               WhatsApp Booking
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 flex-1 bg-transparent text-sm md:text-base"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = 'tel:+923390097397';
-                link.click();
+            </a>
+            <a 
+              href="tel:+923301716287"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Force the phone dialer to open
+                const phoneNumber = '+923301716287';
+                
+                // Method 1: Direct navigation
+                window.location.href = `tel:${phoneNumber}`;
+                
+                // Method 2: Fallback - create and click a link
+                setTimeout(() => {
+                  const link = document.createElement('a');
+                  link.href = `tel:${phoneNumber}`;
+                  link.click();
+                }, 50);
               }}
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-white text-white hover:bg-white hover:text-blue-600 flex-1 bg-transparent text-sm md:text-base px-6 md:px-8 py-3 text-lg"
             >
               Call Now
-            </Button>
+            </a>
           </div>
           <div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto text-left px-4">
             <div>
